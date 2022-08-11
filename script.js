@@ -1,5 +1,25 @@
 // Assignment code here
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i",
+  "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u",
+  "v", "w", "x", "y", "z"];
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I",
+  "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+  "V", "W", "X", "Y", "Z"];
+var numeral = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var specialCharacter = ["!", "#", "$", "%", "^", "&", "*", "(",
+  ")", "+", "-", "_", "<", ">"];
 
+var passwordGenerate = function() {
+  var promptLength = window.prompt("How long would you like your password to be?");
+}
+
+// When the user clicks the button, they should be prompted to specify
+// a password length
+
+// Next they should be asked which character sets to include in their password
+
+// A loop should occur pulling characters until a password of the
+// specified length has been generated
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
