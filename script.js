@@ -10,11 +10,19 @@ var specialCharacter = ["!", "#", "$", "%", "^", "&", "*", "(",
   ")", "+", "-", "_", "<", ">"];
 
 var passwordGenerate = function() {
-  var promptLength = window.prompt("How long would you like your password to be?");
-}
 
-// When the user clicks the button, they should be prompted to specify
-// a password length
+  // prompts the user to specify a password length
+  var passwordLength = window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters.");
+  console.log(passwordLength);
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    window.alert("Great! Next let's choose your character sets.");
+      var lowercasePassword()=window.prompt("Would you like to include lowercase letters?");
+  }
+  else {
+    window.alert("Your password is too long or too short. Please choose an appropriate length.");
+    passwordGenerate();
+  }
+}
 
 // Next they should be asked which character sets to include in their password
 
