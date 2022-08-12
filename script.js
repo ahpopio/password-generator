@@ -30,6 +30,24 @@ function writePassword() {
 
   // several prompts asking the user to choose their character sets
   var includeLower = confirm("Do you want to include lowercase letters?");
+  var includeUpper = confirm("Do you want to include uppercase letters?");
+  var includeNumeral = confirm("Do you want to include numbers?");
+  var includeSpecial = confirm("Do you want to include special characters ('%', '&', etc.)?");
+
+  // creates an object storing user's selections
+  var passwordRecipe = {
+    length: passwordLength,
+    lowercase: includeLower,
+    uppercase: includeUpper,
+    numeral: includeNumeral,
+    special: includeSpecial
+  }
+
+  // testing
+  console.log(passwordRecipe);
+  
+  // ends the question phase
+  return passwordRecipe;
 }
 
 // Get references to the #generate element
