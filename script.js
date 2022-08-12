@@ -25,8 +25,11 @@ function writePassword() {
   }
   else {
     window.alert("Your password is too long or too short. Please choose an appropriate length.");
-    buildPassword();
+    writePassword();
   }
+
+  // several prompts asking the user to choose their character sets
+  var includeLower = confirm("Do you want to include lowercase letters?");
 }
 
 // Get references to the #generate element
