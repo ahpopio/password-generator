@@ -34,6 +34,11 @@ function writePassword() {
   var includeNumeral = confirm("Do you want to include numbers?");
   var includeSpecial = confirm("Do you want to include special characters ('%', '&', etc.)?");
 
+  if (!includeLower && !includeUpper && !includeNumeral && !includeSpecial) {
+    window.alert("Please choose at least one character set for your password!");
+    writePassword();
+  }
+
   // creates an object storing user's selections
   var passwordRecipe = {
     length: passwordLength,
@@ -45,7 +50,7 @@ function writePassword() {
 
   // testing
   console.log(passwordRecipe);
-  
+
   // ends the question phase
   return passwordRecipe;
 }
