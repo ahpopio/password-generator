@@ -14,7 +14,7 @@ var specialCharacterLibrary = ["!", "#", "$", "%", "^", "&", "*", "(",
   ")", "+", "-", "_", "<", ">"];
 
 // Retrieve desired password length from user
-function writePassword() {
+function passwordOptions() {
   var passwordLength = parseInt(window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters."));
 
   // prompts the user to specify a password length, loops if given a
@@ -25,7 +25,7 @@ function writePassword() {
   }
   else {
     window.alert("Your password is too long or too short. Please choose an appropriate length.");
-    writePassword();
+    passwordOptions();
   }
 
   // several prompts asking the user to choose their character sets
@@ -36,7 +36,7 @@ function writePassword() {
 
   if (!includeLower && !includeUpper && !includeNumeral && !includeSpecial) {
     window.alert("Please choose at least one character set for your password!");
-    writePassword();
+    passwordOptions();
   }
 
   // creates an object storing user's selections
@@ -55,6 +55,26 @@ function writePassword() {
   return passwordRecipe;
 }
 
+function createPassword() {
+  // retrieve user's selections
+  var recipe = passwordOptions();
+  
+  // set up a blank array to store the appropriate character sets
+  // for this password
+  var passwordIngredients = [];
+
+  // start selecting ingredients (pulling from character sets) to
+  // generate a password
+  if (recipe.lower) {
+    for (i = 0; i < lowercaseLibrary.length; i++) {
+      passwordIngredients.push(lowercaseLibrary[i]);
+    }
+  }
+  console.log(passwordIngredients);
+}
+
+
+
 // Get references to the #generate element
 // var generateBtn = document.querySelector("#generate");
 
@@ -68,4 +88,4 @@ function writePassword() {
 // }
 
 // Add event listener to generate button
-generate.addEventListener("click", writePassword);
+generate.addEventListener("click", passwordOptions);
