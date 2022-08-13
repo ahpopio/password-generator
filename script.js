@@ -58,11 +58,9 @@ function passwordOptions() {
 function createPassword() {
   // retrieve user's selections
   var recipe = passwordOptions();
-  
   // set up a blank array to store the appropriate character sets
   // for this password
   var passwordIngredients = [];
-
   // start selecting ingredients (pulling from character sets) to
   // generate a password
   if (recipe.lower) {
@@ -70,7 +68,21 @@ function createPassword() {
       passwordIngredients.push(lowercaseLibrary[i]);
     }
   }
-  console.log(passwordIngredients);
+  if (recipe.upper) {
+    for (i=0; i < uppercaseLibrary.length; i++) {
+      passwordIngredients.push(uppercaseLibrary[i]);
+    }
+  }
+  if (recipe.numeral) {
+    for (i=0; i < numeralLibrary.length; i++) {
+      passwordIngredients.push(numeralLibrary[i]);
+    }
+  }
+  if (recipe.special) {
+    for (i=0; i < specialCharacterLibrary.length; i++) {
+      passwordIngredients.push(specialCharacterLibrary[i]);
+    }
+  }
 }
 
 
