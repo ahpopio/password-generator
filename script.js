@@ -1,6 +1,3 @@
-// Initial input from user on button click
-// var startButton = document.getElementById("generate");
-
 // Arrays containing character sets of each type
 // (lower, upper, numeral, and special)
 var lowercaseLibrary = ["a", "b", "c", "d", "e", "f", "g", "h", "i",
@@ -56,11 +53,14 @@ function passwordOptions() {
 }
 
 function createPassword() {
+
   // retrieve user's selections
   var recipe = passwordOptions();
+
   // set up a blank array to store the appropriate character sets
   // for this password
   var passwordIngredients = [];
+
   // start selecting ingredients (pulling from character sets) to
   // generate a password
   if (recipe.lower) {
@@ -83,21 +83,20 @@ function createPassword() {
       passwordIngredients.push(specialCharacterLibrary[i]);
     }
   }
+
+var password = [];
+
+  for (let i = 0; i < recipe.length; ++i) {
+    var randomPicker = Math.floor(Math.random() * Math.floor(passwordIngredients.length));
+     password.push(passwordIngredients[randomPicker])
+  }
+
+  var fullyCooked = password.join('');
+  
+  var passwordText = document.querySelector("#password");
+  passwordText.value = fullyCooked;
+
 }
 
-
-
-// Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
 // Add event listener to generate button
-generate.addEventListener("click", passwordOptions);
+generate.addEventListener("click", createPassword);
